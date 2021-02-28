@@ -95,7 +95,7 @@ export const Description = styled.div`
 
   hr {
     display: block;
-    margin: 30px 0;
+    margin-top: 30px;
   }
 
   h2, p {
@@ -104,16 +104,14 @@ export const Description = styled.div`
   }
 
   h2 {
-    margin-bottom: 30px;
+    margin: 30px 0;
     font-weight: bold;
   }
 
-  /* span {
-    display: inline-block;
-    max-width: 100%;
-    word-break: break-all;
-    margin-bottom: 18px;
-    line-height: 1.5;
-    text-indent: 1.5em;
-  } */
+  div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 80%;
+  }
 `

@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Footer from '../../components/footer'
 import Header from '../../components/header';
 import { Container, ProductDetail, Description } from './styles';
 import api from '../../services/api';
 import { FiShoppingCart } from 'react-icons/fi';
 import StockFalse from '../../components/buttons/StockFalse';
+import ReactHtmlParser from 'react-html-parser';
+import MyContext from '../../context';
 
 const Product = () => {
   const [productCode, setProductCode] = useState([]);
   const [productValue, setProductValue] = useState([]);
   const [productStock, setProductStock] = useState([]);
+  const { addToCart, setAddToCart } = useContext(MyContext);
+
+  const handleAddToCart = () => {
+    setAddToCart(addToCart + 1);
+  }
 
   //Fetch product code from API
   const handleProductCode = async () => {
@@ -66,17 +73,19 @@ const Product = () => {
       <ProductDetail>
         <img src="https://images-na.ssl-images-amazon.com/images/I/61YVqHdFRxL._AC_SX679_.jpg" alt="Smartphone" />
         <div>
-          <h3>{productCode.manufacturer}</h3>
+          <h3>{productCode.name}</h3>
           <div>
             <p>{productValue}</p>
-            {productStock > 0 ? <button>Add to Cart <span><FiShoppingCart /></span></button> : <StockFalse />}
+            {productStock > 0 ? <button onClick={handleAddToCart}>Add to Cart <span><FiShoppingCart /></span></button> : <StockFalse />}
           </div>
         </div>
       </ProductDetail>
       <Description>
           <hr />
+          <h2>SUMMARY</h2>
+          <div>{productCode.summary}</div>
           <h2>DESCRIPTION</h2>
-          {productCode.description}
+          <div>{ReactHtmlParser(productCode.description)}</div>
         </Description>
     </Container>
     <Footer />

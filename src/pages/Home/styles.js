@@ -42,7 +42,8 @@ export const Banner = styled.div`
       justify-content: space-around;
 
       p {
-      text-align: center;
+        text-align: center;
+        font-size: 1.2em;
       }
 
     a {

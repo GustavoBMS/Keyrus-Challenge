@@ -7,7 +7,7 @@ export const MainHeader = styled.header`
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     height: 100px;
     max-width: 800px;
@@ -16,6 +16,10 @@ export const MainHeader = styled.header`
     @media only screen and (max-width:599px) {
       margin: 0 10px 0 10px;
       height: 80px;
+    }
+
+    h1 {
+      margin: 0 auto;
     }
 
     a img {
@@ -42,6 +46,10 @@ export const MainHeader = styled.header`
       span {
         display: flex;
         align-items: center;
+
+        svg {
+          margin-right: 4px;
+        }
       }
     }
   }
