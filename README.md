@@ -8,3 +8,6 @@ http://challenge-front-end-keyrus.us-east-2.elasticbeanstalk.com/swagger-ui.html
 
 ### Possiveis problemas
 Se estiver tendo problemas com a comunicação da API utilize este site https://cors-anywhere.herokuapp.com/corsdemo e siga as instruções.
+
+### Link do projeto
+https://keyrus-challenge.vercel.app
